@@ -39,7 +39,7 @@ function getGrade() {
         let d = getRandomNumber(toNormalNumber(i.max) / 10, toNormalNumber(i.max));
         return {
             ...i,
-            d,
+            d: d.toLocaleString(),
             c: Number(toNormalNumber(i.max, false) - d).toLocaleString()
         }
     });
