@@ -220,9 +220,9 @@
         <div class="item item-pro">0.0/99.1</div>
         <div class="item item-cha"><span class="item-cha-num">99.1</span><span class="item-cha-d">元</span></div>
 
-        <div class="item item-text1">4.8 超98.25%同行</div>
-        <div class="item item-text2">4.7 超97.22%同行</div>
-        <div class="item item-text3">4.6 超96.95%同行</div>
+        <div class="item item-text1" id="描述相符">4.8 超98.25%同行</div>
+        <div class="item item-text2" id="物流服务">4.7 超97.22%同行</div>
+        <div class="item item-text3" id="服务态度">4.6 超96.95%同行</div>
 
         <div class="item item-date" id="tradedate">2019年12月02日</div>
 
@@ -247,6 +247,7 @@
     </div>
     <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
     <script src="../javascripts/jquery-3.4.1.min.js"></script>
+    <script src="../javascripts/util.js"></script>
     <script>
         $(function () {
             let now = moment().format('HH:mm');
@@ -255,7 +256,9 @@
             let tradedate = moment().format('YYYY年MM月');
             $('#tradedate').text(tradedate);
 
-
+            $('#描述相符').text(`${getScore()} 超${getRandomNumber(97,99,2)}%同行`);
+            $('#物流服务').text(`${getScore()} 超${getRandomNumber(97,99,2)}%同行`);
+            $('#服务态度').text(`${getScore()} 超${getRandomNumber(97,99,2)}%同行`);
         });
     </script>
 </body>

@@ -253,9 +253,14 @@
             let tradedate = moment().format('YYYY年MM月DD日');
             $('#tradedate').text(tradedate);
 
-            $('#描述相符').text(`${getScore()} ${getRandomNumber(97,99,2)}%超同行`);
-            $('#物流服务').text(`${getScore()} ${getRandomNumber(97,99,2)}%超同行`);
-            $('#服务态度').text(`${getScore()} ${getRandomNumber(97,99,2)}%超同行`);
+            $('#描述相符').text(`${getScore()} 超${getRandomNumber(97,99,2)}%同行`);
+            $('#物流服务').text(`${getScore()} 超${getRandomNumber(97,99,2)}%同行`);
+            $('#服务态度').text(`${getScore()} 超${getRandomNumber(97,99,2)}%同行`);
+
+            let gradeInfo = getGrade();
+            $('.item-g').text(gradeInfo.g);
+            $('.item-pro').text(`${gradeInfo.d} / ${gradeInfo.max}`);
+            $('.item-cha-num').text(gradeInfo.c);
         });
     </script>
 </body>
