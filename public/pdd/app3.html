@@ -226,23 +226,23 @@
 
         <div class="item item-date" id="tradedate">2019年12月02日</div>
 
-        <div class="item item-1"><span class="rmb">¥</span>28,340</div>
-        <div class="item item-1-s"><span class="itemtext">较上一周</span>0%<span class="glyphicon glyphicon-arrow-up item-icon"></span></div>
+        <div class="item item-1"><span class="rmb">¥</span><span id="成交额">28,340</span></div>
+        <div class="item item-1-s"><span class="itemtext">较上一周</span><span id="成交额较上一周"></span>%<span class="glyphicon glyphicon-arrow-up item-icon"></span></div>
 
-        <div class="item item-2"><span>5,123</span><span style="font-size: 16px;">人</span></div>
-        <div class="item item-2-s"><span class="itemtext">较上一周</span>0%<span class="glyphicon glyphicon-arrow-up item-icon"></span></div>
+        <div class="item item-2"><span id="访客数">5,123</span><span style="font-size: 16px;">人</span></div>
+        <div class="item item-2-s"><span class="itemtext">较上一周</span><span id="访客数较上一周"></span>%<span class="glyphicon glyphicon-arrow-up item-icon"></span></div>
 
-        <div class="item item-3"><span class="rmb">¥</span>41.50</div>
-        <div class="item item-3-s"><span class="itemtext">较上一周</span>0%<span class="glyphicon glyphicon-arrow-up item-icon"></span></div>
+        <div class="item item-3"><span class="rmb">¥</span><span id="客单价">28,340</span></div>
+        <div class="item item-3-s"><span class="itemtext">较上一周</span><span id="客单价较上一周"></span>%<span class="glyphicon glyphicon-arrow-up item-icon"></span></div>
 
-        <div class="item item-4"><span>723</span><span style="font-size: 16px;">单</span></div>
-        <div class="item item-4-s"><span class="itemtext">较上一周</span>0%<span class="glyphicon glyphicon-arrow-up item-icon"></span></div>
+        <div class="item item-4"><span id="订单数">723</span><span style="font-size: 16px;">单</span></div>
+        <div class="item item-4-s"><span class="itemtext">较上一周</span><span id="订单数较上一周"></span>%<span class="glyphicon glyphicon-arrow-up item-icon"></span></div>
 
-        <div class="item item-5"><span class="rmb">¥</span>0.00</div>
-        <div class="item item-5-s"><span class="itemtext">较上一周</span>0%<span class="glyphicon glyphicon-arrow-up item-icon"></span></div>
+        <div class="item item-5"><span class="rmb">¥</span><span id="退款金额">28,340</span></div>
+        <div class="item item-5-s"><span class="itemtext">较上一周</span><span id="退款金额较上一周"></span>%<span class="glyphicon glyphicon-arrow-down item-icon"></span></div>
 
-        <div class="item item-6"><span>0</span><span style="font-size: 16px;">单</span></div>
-        <div class="item item-6-s"><span class="itemtext">较上一周</span>0%<span class="glyphicon glyphicon-arrow-up item-icon"></span></div>
+        <div class="item item-6"><span id="退款单数">0</span><span style="font-size: 16px;">单</span></div>
+        <div class="item item-6-s"><span class="itemtext">较上一周</span><span id="退款单数较上一周"></span>%<span class="glyphicon glyphicon-arrow-down item-icon"></span></div>
         <!-- <div class="item item-4">0.0/99.1</div>
         <div class="item item-5">0.0/99.1</div>
         <div class="item item-6">0.0/99.1</div> -->
@@ -262,6 +262,30 @@
             $('#描述相符').text(`${getScore()} 超${getRandomNumber(97,99,2)}%同行`);
             $('#物流服务').text(`${getScore()} 超${getRandomNumber(97,99,2)}%同行`);
             $('#服务态度').text(`${getScore()} 超${getRandomNumber(97,99,2)}%同行`);
+
+            let gradeInfo = getGrade();
+            $('.item-g').text(gradeInfo.g);
+            $('.item-pro').text(`${gradeInfo.d} / ${gradeInfo.max}`);
+            $('.item-cha-num').text(gradeInfo.c);
+
+            let price = getRandomNumber(20, 40, 2);
+            let order = getRandomNumber(20, 30) * 7;
+            let visit = getRandomNumber(order * 9, order * 15);
+
+            let rejectOrder = getRandomNumber(0, 1);
+            let rejectTotal = rejectOrder * price;
+            $('#成交额').text(parseInt(price * order).toLocaleString());
+            $('#成交额较上一周').text(getRandomNumber(5, 15));
+            $('#访客数').text(visit.toLocaleString());
+            $('#访客数较上一周').text(getRandomNumber(5, 15));
+            $('#客单价').text(price);
+            $('#客单价较上一周').text(getRandomNumber(1, 5));
+            $('#订单数').text(order);
+            $('#订单数较上一周').text(getRandomNumber(5, 15));
+            $('#退款金额').text(rejectTotal.toFixed(2));
+            $('#退款金额较上一周').text(getRandomNumber(0, 5));
+            $('#退款单数').text(rejectOrder);
+            $('#退款单数较上一周').text(getRandomNumber(0, 5));
         });
     </script>
 </body>

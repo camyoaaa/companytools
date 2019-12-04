@@ -9953,32 +9953,32 @@
                                 <div class="flex-h synopsis-card-wrapper">
                                     <div class="synopsis-card-item-wrapper">
                                         <div><span class="alias">支付金额</span></div>
-                                        <p><span class="value">6,765</span><span class="unit ml-5">元</span></p>
-                                        <p class="ratio__wrapper"><span class="ratio-text text-tip-xs">昨日全天</span><span class="ratio-value">5,935</span></p>
+                                        <p><span class="value" id="支付金额">6,765</span><span class="unit ml-5">元</span></p>
+                                        <p class="ratio__wrapper"><span class="ratio-text text-tip-xs">昨日全天</span><span class="ratio-value" id="支付金额昨日全天">5,935</span></p>
                                     </div>
                                     <div class="synopsis-card-item-wrapper">
                                         <div><span class="alias">支付买家数</span></div>
-                                        <p><span class="value">239</span></p>
-                                        <p class="ratio__wrapper"><span class="ratio-text text-tip-xs">昨日全天</span><span class="ratio-value">228</span></p>
+                                        <p><span class="value" id="支付买家数">239</span></p>
+                                        <p class="ratio__wrapper"><span class="ratio-text text-tip-xs">昨日全天</span><span class="ratio-value" id="支付买家数昨日全天">228</span></p>
                                     </div>
                                     <div class="synopsis-card-item-wrapper">
                                         <div><span class="alias">支付订单数</span></div>
-                                        <p><span class="value">249</span></p>
-                                        <p class="ratio__wrapper"><span class="ratio-text text-tip-xs">昨日全天</span><span class="ratio-value">217</span></p>
+                                        <p><span class="value" id="支付订单数">249</span></p>
+                                        <p class="ratio__wrapper"><span class="ratio-text text-tip-xs">昨日全天</span><span class="ratio-value" id="支付订单数昨日全天">217</span></p>
                                     </div>
                                     <div class="synopsis-card-item-wrapper">
                                         <div><span class="alias">成团金额</span></div>
-                                        <p><span class="value">7,899</span><span class="unit ml-5">元</span></p>
-                                        <p class="ratio__wrapper"><span class="ratio-text text-tip-xs">昨日全天</span><span class="ratio-value">7,543</span></p>
+                                        <p><span class="value" id="成团金额">7,899</span><span class="unit ml-5">元</span></p>
+                                        <p class="ratio__wrapper"><span class="ratio-text text-tip-xs">昨日全天</span><span class="ratio-value" id="成团金额昨日全天">7,543</span></p>
                                     </div>
                                     <div class="synopsis-card-item-wrapper">
                                         <div><span class="alias">成团件数</span></div>
-                                        <p><span class="value">543</span></p>
-                                        <p class="ratio__wrapper"><span class="ratio-text text-tip-xs">昨日全天</span><span class="ratio-value">512</span></p>
+                                        <p><span class="value" id="成团件数">543</span></p>
+                                        <p class="ratio__wrapper"><span class="ratio-text text-tip-xs">昨日全天</span><span class="ratio-value" id="成团件数昨日全天">512</span></p>
                                     </div>
                                     <div class="synopsis-card-item-wrapper">
                                         <div><span class="alias">即将失效团金额</span></div>
-                                        <p><span class="value">1,134</span><span class="unit ml-5">元</span></p>
+                                        <p><span class="value" id="即将失效团金额">1,134</span><span class="unit ml-5">元</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -10221,11 +10221,32 @@
     </div>
     <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
     <script src="../javascripts/jquery-3.4.1.min.js"></script>
+    <script src="../javascripts/util.js"></script>
     <script>
         $(function () {
             let date = moment().format('YYYY-MM-DD HH:mm:ss');
             $('#calcDate').text(`（更新时间：${date}）`);
 
+            let price = getRandomNumber(20, 40);
+            let order = getRandomNumber(200, 300);
+            let payer = getRandomNumber(order * 0.9, order);
+
+            let itemTotal = getRandomNumber(order * 2, order * 3);
+
+            let totalprice = price * order;
+            let ctotalprice = getRandomNumber(totalprice * 1.05, totalprice * 1.15);
+            let unused = ctotalprice - totalprice;
+            $('#支付金额').text(totalprice.toLocaleString());
+            $('#支付金额昨日全天').text(getRandomNumber(totalprice * 0.9, totalprice * 0.95).toLocaleString());
+            $('#支付买家数').text(payer);
+            $('#支付买家数昨日全天').text(getRandomNumber(payer * 0.9, payer * 0.95).toLocaleString());
+            $('#支付订单数').text(order);
+            $('#支付订单数昨日全天').text(getRandomNumber(order * 0.9, order * 0.95).toLocaleString());
+            $('#成团金额').text(ctotalprice.toLocaleString());
+            $('#成团金额昨日全天').text(getRandomNumber(ctotalprice * 0.9, ctotalprice * 0.95).toLocaleString());
+            $('#成团件数').text(itemTotal);
+            $('#成团件数昨日全天').text(getRandomNumber(itemTotal * 0.9, itemTotal * 0.95).toLocaleString());
+            $('#即将失效团金额').text(unused.toLocaleString());
 
         });
     </script>

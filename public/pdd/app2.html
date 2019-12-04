@@ -102,9 +102,15 @@
             right: 15px;
         }
 
+        .item-date2 {
+            color: rgb(172, 172, 172);
+            top: 690px;
+            right: 15px;
+        }
+
         .item-1 {
             top: 518px;
-            left: 32px;
+            left: 23px;
             width: 100px;
             text-align: left;
             font-size: 26px;
@@ -183,19 +189,19 @@
         <div class="item item-text3" id="服务态度">4.6 超96.95%同行</div>
 
         <div class="item item-date" id="tradedate">2019年12月02日</div>
+        <div class="item item-date2" id="tradedate2">2019年12月02日</div>
+        <div class="item item-1"><span style="font-size:15px;font-weight:bold;margin-right: 1px;color:rgb(51, 51, 51)">¥</span><span id="成团金额"></span></div>
 
-        <div class="item item-1">2,134</div>
+        <div class="item item-2"><span id="成团订单数">80</span><span style="font-size: 16px;">单</span></div>
 
-        <div class="item item-2"><span>80</span><span style="font-size: 16px;">单</span></div>
+        <div class="item item-3"><span style="font-size:15px;font-weight:bold;margin-right: 1px;color:rgb(51, 51, 51)">¥</span><span id="客单价">26.75</span></div>
 
-        <div class="item item-3"><span style="font-size:15px;font-weight:bold;margin-right: 1px;color:rgb(51, 51, 51)">¥</span>26.75</div>
+        <div class="item item-4"><span id="店铺访客数">1,342</span><span style="font-size: 16px;">人</span></div>
 
-        <div class="item item-4"><span>1,342</span><span style="font-size: 16px;">人</span></div>
+        <div class="item item-5"><span id="支付老买家占比">0.00</span>%</div>
 
-        <div class="item item-5">0.00%</div>
-
-        <div class="item item-6"><span>0</span><span style="font-size: 16px;">单</span></div>
-        <div class="item item-7">0.12%</div>
+        <div class="item item-6"><span id="店铺收藏数">0</span><span style="font-size: 16px;">单</span></div>
+        <div class="item item-7"><span id="老访客占比">0.12</span>%</div>
 
     </div>
     <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
@@ -204,16 +210,34 @@
     <script>
         $(function () {
             let now = moment().format('HH:mm');
+            let latest = moment().add(-getRandomNumber(1, 5), 'hours').set({
+                minute: 0
+            }).format('HH:mm');
             $('.item-t').text(now);
 
             let tradedate = moment().format('MM-DD');
             $('#tradedate').text(`更新时间 ${tradedate}(今天)${now}`);
+            $('#tradedate2').text(`更新时间 ${tradedate}(今天)${latest}`);
 
             $('#描述相符').text(`${getScore()} 超${getRandomNumber(97,99,2)}%同行`);
             $('#物流服务').text(`${getScore()} 超${getRandomNumber(97,99,2)}%同行`);
             $('#服务态度').text(`${getScore()} 超${getRandomNumber(97,99,2)}%同行`);
 
+            let gradeInfo = getGrade();
+            $('.item-g').text(gradeInfo.g);
+            $('.item-pro').text(`${gradeInfo.d} / ${gradeInfo.max}`);
+            $('.item-cha-num').text(gradeInfo.c);
 
+            let price = getRandomNumber(20, 40, 2);
+            let order = getRandomNumber(10, 30);
+            let visit = getRandomNumber(order * 9, order * 15);
+            $('#成团金额').text(parseInt(price * order).toLocaleString());
+            $('#成团订单数').text(order);
+            $('#客单价').text(price);
+            $('#店铺访客数').text(visit.toLocaleString());
+            $('#支付老买家占比').text(getRandomNumber(5, 15, 2));
+            $('#店铺收藏数').text(getRandomNumber(30, 50));
+            $('#老访客占比').text(getRandomNumber(2, 5, 2));
         });
     </script>
 </body>

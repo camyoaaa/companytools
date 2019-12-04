@@ -113,10 +113,25 @@
     </div>
     <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
     <script src="../javascripts/jquery-3.4.1.min.js"></script>
+    <script src="../javascripts/util.js"></script>
     <script>
         $(function () {
             let now = moment().format('HH:mm');
             $('.item-t').text(now);
+
+            let order = getRandomNumber(50, 80);
+            let price = getRandomNumber(20, 40);
+            let talk = getRandomNumber(order * 1.2, order * 1.5);
+            let visit = getRandomNumber(order * 8, order * 12);
+            $('.item-1 .num').text(parseInt(order * price).toLocaleString());
+            $('.item-2').text(visit.toLocaleString());
+            $('.item-3').text(talk.toLocaleString());
+            $('.item-4').text(order.toLocaleString());
+
+            $('.item-5').text(getRandomNumber(8, 15));
+            $('.item-6').text(getRandomNumber(8, 15));
+            $('.item-7').text(getRandomNumber(8, 15));
+            $('.item-8').text(getRandomNumber(0, 2));
         });
     </script>
 </body>

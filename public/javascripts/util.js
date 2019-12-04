@@ -11,9 +11,9 @@ function getScore() {
 
 function toNormalNumber(str, int = true) {
     if (!int) {
-        return Number(str.replace(',', ''));
+        return Number(String(str).replace(',', ''));
     }
-    return parseInt(str.replace(',', ''));
+    return parseInt(String(str).replace(',', ''));
 }
 
 function getGrade() {
@@ -35,7 +35,6 @@ function getGrade() {
         }
     ]
     grade = grade.map((i) => {
-        console.log(toNormalNumber(i.max) / 10, toNormalNumber(i.max), getRandomNumber(toNormalNumber(i.max) / 10, toNormalNumber(i.max)));
         let d = getRandomNumber(toNormalNumber(i.max) / 10, toNormalNumber(i.max));
         return {
             ...i,
@@ -43,6 +42,11 @@ function getGrade() {
             c: Number(toNormalNumber(i.max, false) - d).toLocaleString()
         }
     });
-    console.log(grade[getRandomNumber(0, grade.length - 1)]);
     return grade[getRandomNumber(0, grade.length - 1)]
+}
+
+
+function getPDDTitle() {
+    var randomTitle = ['南极人卡尚莱品专卖店', '潇潇男鞋', '创美益服饰专营店', '匹跑服饰专营店', '香约纸品专卖店', 'U哈家纺', '卡信互联图书专营店'];
+    return randomTitle[getRandomNumber(0, randomTitle.length)];
 }
