@@ -9757,8 +9757,8 @@
                                 <div class="user-info-top">
                                     <div class="avatar"><img src="//t16img.yangkeduo.com/img_check/2019-11-28/a9f778e566dc2737db1e9c8ca228799d.jpg"></div>
                                     <div class="user-name">
-                                        <p class="name" title="菜包子百货">菜包子百货</p>
-                                        <p class="id" title="pdd20087730073">pdd20087730073</p>
+                                        <p class="name" title="用户名" id="用户名">菜包子百货</p>
+                                        <p class="id" title="pdd20087730073" id="用户id">pdd20087730073</p>
                                     </div><span class="arrow"></span>
                                 </div>
                                 <div class="user-info-bottom"><a href="/mallcenter/changeAccountInfo/accountSetting">
@@ -10226,6 +10226,10 @@
         $(function () {
             let date = moment().format('YYYY-MM-DD HH:mm:ss');
             $('#calcDate').text(`（更新时间：${date}）`);
+
+            $('#用户名').text(getPDDTitle());
+            let title = `pdd2008${getRandomNumber(1000000,9999999)}`;
+            $('#用户id').text(title).attr('title', title);
 
             let price = getRandomNumber(20, 40);
             let order = getRandomNumber(200, 300);
