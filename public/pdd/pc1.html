@@ -73323,7 +73323,7 @@
                             <div class="mall-data">
                                 <div class="mall-data__header">
                                     <div class="mall-data__header__infos">
-                                        <div class="mall-data__header__name">菜包子百货</div><img class="mall-data__header__sq-code-icon"
+                                        <div class="mall-data__header__name" id="店铺名字">菜包子百货</div><img class="mall-data__header__sq-code-icon"
                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcAQMAAABIw03XAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURUdwTCJmqqFHkAgAAAABdFJOUwBA5thmAAAAMUlEQVQI12NggAP7D/8PQAgDgwNQwtjgDJRAiCHUYQP2H8BKwIrPQAlkU2AEQh0cAABx/C1hl3mZagAAAABJRU5ErkJggg=="
                                             alt="店铺二维码">
                                     </div><span class="mall-data__header__staple">主营类目</span>
@@ -73646,7 +73646,9 @@
             let now = moment().format('YYYY-MM-DD HH:mm:ss');
             $('#更新时间').text(`更新时间: ${now}`);
         });
-        $('#用户名').text(getPDDTitle());
+        let name = getPDDTitle();
+        $('#用户名').text(name);
+        $('#店铺名字').text(name);
         let title = `pdd2008${getRandomNumber(1000000,9999999)}`;
         $('#用户id').text(title).attr('title', title);
         $('#描述相符').text(getScore());
@@ -73662,17 +73664,17 @@
             $('#即将延迟发货').text(getRandomNumber(0, 10));
             $('#已延迟发货').text(getRandomNumber(0, 15));
 
-            
-            let price = getRandomNumber(20, 40);//随机单价
-            let buyer = getRandomNumber(200, 300);//随机买家数
-            let order = getRandomNumber(buyer * 1.1, buyer * 1.5);//订单数大于买家数1.1到1.5倍
 
-            let totalprice = price * buyer;//成团金额
+            let price = getRandomNumber(20, 40); //随机单价
+            let buyer = getRandomNumber(200, 300); //随机买家数
+            let order = getRandomNumber(buyer * 1.1, buyer * 1.5); //订单数大于买家数1.1到1.5倍
 
-            let visit = getRandomNumber(buyer * 20, buyer * 40);//访客数是买家数的20到40倍
-            let scan = getRandomNumber(visit * 1.1, visit * 1.5);//浏览量是访客数的1.1到1.5倍
+            let totalprice = price * buyer; //成团金额
 
-            let change = getRandomNumber(65, 80, 2);//询单转化率 65到85
+            let visit = getRandomNumber(buyer * 20, buyer * 40); //访客数是买家数的20到40倍
+            let scan = getRandomNumber(visit * 1.1, visit * 1.5); //浏览量是访客数的1.1到1.5倍
+
+            let change = getRandomNumber(65, 80, 2); //询单转化率 65到85
 
             $('#成团金额').text(Number(totalprice).toLocaleString());
             $('#成团订单数').text(Number(order).toLocaleString());

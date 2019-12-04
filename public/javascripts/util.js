@@ -18,19 +18,12 @@ function toNormalNumber(str, int = true) {
 
 function getGrade() {
     let grade = [{
-            g: 'LV1',
-            max: '99.1'
-        },
-        {
-            g: 'LV2',
-            max: '999.1'
-        },
-        {
-            g: 'LV3',
-            max: '9,999.1'
-        },
-        {
+
             g: 'LV4',
+            max: '99,999.1'
+        },
+        {
+            g: 'LV5',
             max: '99,999.1'
         }
     ]
