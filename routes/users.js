@@ -11,7 +11,7 @@ router.get('/login', function (req, res, next) {
 });
 router.post('/regist', function (req, res, next) {
   console.log(req);
-  res.send('respond with a resource');
+  res.send(req);
 });
 
 module.exports = router;
