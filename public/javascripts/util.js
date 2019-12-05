@@ -28,7 +28,7 @@ function getGrade() {
         }
     ]
     grade = grade.map((i) => {
-        let d = getRandomNumber(toNormalNumber(i.max) / 10, toNormalNumber(i.max));
+        let d = getRandomNumber(toNormalNumber(i.max) / 5, toNormalNumber(i.max));
         return {
             ...i,
             d: d.toLocaleString(),
