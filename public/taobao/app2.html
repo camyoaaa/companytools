@@ -126,10 +126,45 @@
     </div>
     <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
     <script src="../javascripts/jquery-3.4.1.min.js"></script>
+    <script src="../javascripts/util.js"></script>
     <script>
         $(function () {
             let now = moment().format('HH:mm');
             $('.item-time').text(now);
+
+
+            let order = getRandomNumber(30, 50);
+            let reject = getRandomNumber(0, 1);
+            let topay = getRandomNumber(5, 10);
+            let tosend = getRandomNumber(5, 10);
+
+            let yvisit = getRandomNumber(1000, 2000);
+            let yorder = getRandomNumber(yvisit / 9, yvisit / 15);
+            let price = getRandomNumber(20, 40);
+            let zuoriMoney = yorder * price;
+
+            let toScore = getRandomNumber(100, 300);
+
+            let cMoney = order * price;
+            let pcMoney = getRandomNumber(cMoney * 0.1, cMoney * 0.2);
+            let mbMoney = cMoney - pcMoney;
+
+            let flow = getRandomNumber(4000, 6000);
+            let pcflow = getRandomNumber(flow * 0.1, flow * 0.2);
+            $('.item-order').text(order);
+            $('.item-reject').text(reject);
+            $('.item-topay').text(topay);
+            $('.item-f1').text(tosend);
+            $('.item-f2').text(yvisit);
+            $('.item-f3').text(zuoriMoney);
+
+            $('.item-f11').text(toScore);
+            $('.item-f12').text(cMoney);
+            $('.item-f13').text(pcMoney);
+
+            $('.item-f21').text(mbMoney);
+            $('.item-f22').text(flow);
+            $('.item-f23').text(pcflow);
         });
     </script>
 </body>

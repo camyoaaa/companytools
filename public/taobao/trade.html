@@ -68082,40 +68082,40 @@
           </div>
           <div class="content">
             <div class="left-list-item item-one">
-              <div><span class="left-item-title">访客数</span><span class="down trend-icon"><i class="icon-trend"></i></span><span class="num item-right-number">
+              <div><span class="left-item-title">访客数</span><span class="down trend-icon"><i class="icon-trend"></i></span><span class="num item-right-number" id="访客数同比">
                   <!-- react-text: 553 -->
                   <!-- /react-text -->
                   <!-- react-text: 554 -->6.27%
-                  <!-- /react-text --></span><br><span class="num">5,527</span></div>
+                  <!-- /react-text --></span><br><span class="num" id="访客数">5,527</span></div>
             </div>
             <div class="left-list-item item-two">
-              <div><span class="left-item-title">下单买家数</span><span class="down trend-icon"><i class="icon-trend"></i></span><span class="num item-right-number">
+              <div><span class="left-item-title">下单买家数</span><span class="down trend-icon"><i class="icon-trend"></i></span><span class="num item-right-number" id="下单买家数同比">
                   <!-- react-text: 563 -->
                   <!-- /react-text -->
                   <!-- react-text: 564 -->38.32%
-                  <!-- /react-text --></span><br><span class="num">537</span></div>
-              <div><span class="left-item-title">下单金额</span><span class="up trend-icon"><i class="icon-trend"></i></span><span class="num item-right-number">
+                  <!-- /react-text --></span><br><span class="num" id="下单买家数">537</span></div>
+              <div><span class="left-item-title">下单金额</span><span class="up trend-icon"><i class="icon-trend"></i></span><span class="num item-right-number" id="下单金额同比">
                   <!-- react-text: 572 -->
                   <!-- /react-text -->
                   <!-- react-text: 573 -->10.65%
-                  <!-- /react-text --></span><br><span class="num">11,743,89</span></div>
+                  <!-- /react-text --></span><br><span class="num" id="下单金额">11,743,89</span></div>
             </div>
             <div class="left-list-item item-three">
-              <div><span class="left-item-title">支付买家数</span><span class="down trend-icon"><i class="icon-trend"></i></span><span class="num item-right-number">
+              <div><span class="left-item-title">支付买家数</span><span class="down trend-icon"><i class="icon-trend"></i></span><span class="num item-right-number" id="支付买家数同比">
                   <!-- react-text: 582 -->
                   <!-- /react-text -->
                   <!-- react-text: 583 -->37.93%
-                  <!-- /react-text --></span><br><span class="num">522</span></div>
-              <div><span class="left-item-title">支付金额</span><span class="up trend-icon"><i class="icon-trend"></i></span><span class="num item-right-number">
+                  <!-- /react-text --></span><br><span class="num" id="支付买家数">522</span></div>
+              <div><span class="left-item-title">支付金额</span><span class="up trend-icon"><i class="icon-trend"></i></span><span class="num item-right-number" id="支付金额同比">
                   <!-- react-text: 591 -->
                   <!-- /react-text -->
                   <!-- react-text: 592 -->7.65%
-                  <!-- /react-text --></span><br><span class="num">9,865.22</span></div>
-              <div><span class="left-item-title">客单价</span><span class="up trend-icon"><i class="icon-trend"></i></span><span class="num item-right-number">
+                  <!-- /react-text --></span><br><span class="num" id="支付金额">9,865.22</span></div>
+              <div><span class="left-item-title">客单价</span><span class="up trend-icon"><i class="icon-trend"></i></span><span class="num item-right-number" id="客单价同比">
                   <!-- react-text: 600 -->
                   <!-- /react-text -->
                   <!-- react-text: 601 -->48.79%
-                  <!-- /react-text --></span><br><span class="num">18.89</span></div>
+                  <!-- /react-text --></span><br><span class="num" id="客单价">18.89</span></div>
             </div>
             <div class="right-drawable">
               <ul class="desc">
@@ -68123,11 +68123,11 @@
                 <li>下单</li>
                 <li>支付</li>
               </ul>
-              <div class="trading-situation-order-rate"><span class="item-title">下单转化率</span><br><span class="num">8.87%</span></div>
+              <div class="trading-situation-order-rate"><span class="item-title">下单转化率</span><br><span class="num" id="下单转化率">8.87%</span></div>
               <div class="trading-situation-order-to-pay-rate"><span class="item-title">
                   <!-- react-text: 615 -->下单-支付转化率
-                  <!-- /react-text --><i class="order-to-pay-rate-tip">?</i></span><br><span class="num">91.10%</span></div>
-              <div class="trading-situation-pay-rate"><span class="item-title">支付转化率</span><br><span class="num">8.00%</span></div>
+                  <!-- /react-text --><i class="order-to-pay-rate-tip">?</i></span><br><span class="num" id="下单支付转化率">91.10%</span></div>
+              <div class="trading-situation-pay-rate"><span class="item-title">支付转化率</span><br><span class="num" id="支付转化率">8.00%</span></div>
             </div>
           </div>
           <div class="data-desc data-desc-tail" style="padding: 40px 30px; margin: 0px;"><span class="data-desc-brand"></span>
@@ -69039,18 +69039,48 @@
   </div>
   <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
   <script src="../javascripts/jquery-3.4.1.min.js"></script>
+  <script src="../javascripts/util.js"></script>
   <script>
-    var titleList = ['旺仔是条狗 唯一店铺', ' 宿本 与世界温柔相拥', '港仔风文艺男 店铺', '8杯水2号店铺', 'EDTG韩国女装批发店铺', '茉莉雅集高端品质女装', '知名度原创店铺'];
-
-    function getRandomNumber(start, end, fixed = 0) {
-      let differ = end - start
-      let random = Math.random()
-      return (start + differ * random).toFixed(fixed)
-    }
-    var randomTitle = getRandomNumber(0, titleList.length);
-    $('.current-shop-item-title').text(titleList[randomTitle]);
-    var date = moment().add(-1,'days').format('YYYY-MM-DD');
+    $('.current-shop-item-title').text(getTBTitle());
+    var date = moment().add(-1, 'days').format('YYYY-MM-DD');
     $('#交易总览日期').text(`${date}~${date}`);
+
+
+    let visit = getRandomNumber(5000, 7000);
+    let orderchange = getRandomNumber(8, 12, 2);
+    let orderpaychange = getRandomNumber(90, 95, 2);
+    let paychange = orderchange * orderpaychange;
+    let price = getRandomNumber(20, 40, 2);
+
+    let orderer = parseInt(visit * orderchange / 100);
+    let orderMoney = orderer * price;
+
+    let payer = parseInt(orderer * orderpaychange / 100);
+    let payMoney = payer * price;
+
+    $('#访客数').text(visit.toLocaleString());
+    $('#访客数同比').text(`${getRandomNumber(5,10,2)}%`);
+
+    $('#下单买家数').text(orderer.toLocaleString());
+    $('#下单买家数同比').text(`${getRandomNumber(5,10,2)}%`);
+
+    $('#下单金额').text(orderMoney.toLocaleString());
+    $('#下单金额同比').text(`${getRandomNumber(5,10,2)}%`);
+
+    $('#支付买家数').text(payer.toLocaleString());
+    $('#支付买家数同比').text(`${getRandomNumber(5,10,2)}%`);
+
+    $('#支付金额').text(payMoney.toLocaleString());
+    $('#支付金额同比').text(`${getRandomNumber(5,10,2)}%`);
+
+    $('#客单价').text(price.toLocaleString());
+    $('#客单价同比').text(`${getRandomNumber(5,10,2)}%`);
+
+
+    $('#下单转化率').text(`${orderchange}%`);
+    $('#下单支付转化率').text(`${orderpaychange}%`);
+    $('#支付转化率').text(`${Number(paychange / 100).toFixed(2)}%`);
+    let
   </script>
 </body>
 

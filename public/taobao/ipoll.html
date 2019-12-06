@@ -67478,43 +67478,43 @@
             <ul class="index-grid">
               <li class="index-item">
                 <div class="name sans-serif">访客数</div>
-                <div class="value num">571</div>
-                <div class="data2"><i class="oui-icon oui-icon-phone"></i><span class="value num">90.34%</span></div>
+                <div class="value num" id="访客数">571</div>
+                <div class="data2"><i class="oui-icon oui-icon-phone"></i><span class="value num" id="访客数占比">90.34%</span></div>
                 <div class="data3">
                   <!-- react-text: 38 -->昨日
-                  <!-- /react-text --><span class="value num">1,756</span></div>
+                  <!-- /react-text --><span class="value num" id="访客数昨日">1,756</span></div>
               </li>
               <li class="index-item">
                 <div class="name sans-serif">浏览量</div>
-                <div class="value num">982</div>
-                <div class="data2"><i class="oui-icon oui-icon-phone"></i><span class="value num">92.24%</span></div>
+                <div class="value num" id="浏览量">982</div>
+                <div class="data2"><i class="oui-icon oui-icon-phone"></i><span class="value num" id="浏览量占比">92.24%</span></div>
                 <div class="data3">
                   <!-- react-text: 47 -->昨日
-                  <!-- /react-text --><span class="value num">3,151</span></div>
+                  <!-- /react-text --><span class="value num" id="浏览量昨日">3,151</span></div>
               </li>
               <li class="index-item">
                 <div class="name sans-serif">支付金额</div>
-                <div class="value num">955</div>
-                <div class="data2"><i class="oui-icon oui-icon-phone"></i><span class="value num">99.54%</span></div>
+                <div class="value num" id="支付金额">955</div>
+                <div class="data2"><i class="oui-icon oui-icon-phone"></i><span class="value num" id="支付金额占比">99.54%</span></div>
                 <div class="data3">
                   <!-- react-text: 56 -->昨日
-                  <!-- /react-text --><span class="value num">3,574</span></div>
+                  <!-- /react-text --><span class="value num" id="支付金额昨日">3,574</span></div>
               </li>
               <li class="index-item">
                 <div class="name sans-serif">支付子订单数</div>
-                <div class="value num">12</div>
-                <div class="data2"><i class="oui-icon oui-icon-phone"></i><span class="value num">98.54%</span></div>
+                <div class="value num" id="支付子订单数">12</div>
+                <div class="data2"><i class="oui-icon oui-icon-phone"></i><span class="value num" id="支付子订单数占比">98.54%</span></div>
                 <div class="data3">
                   <!-- react-text: 65 -->昨日
-                  <!-- /react-text --><span class="value num">45</span></div>
+                  <!-- /react-text --><span class="value num" id="支付子订单数昨日">45</span></div>
               </li>
               <li class="index-item">
                 <div class="name sans-serif">支付买家数</div>
-                <div class="value num">10</div>
-                <div class="data2"><i class="oui-icon oui-icon-phone"></i><span class="value num">98.54%</span></div>
+                <div class="value num" id="支付买家数">10</div>
+                <div class="data2"><i class="oui-icon oui-icon-phone"></i><span class="value num" id="支付买家数占比">98.54%</span></div>
                 <div class="data3">
                   <!-- react-text: 74 -->昨日
-                  <!-- /react-text --><span class="value num">45</span></div>
+                  <!-- /react-text --><span class="value num" id="支付买家数昨日">45</span></div>
               </li>
             </ul>
             <div class="data-industry">
@@ -67991,18 +67991,42 @@
   </div>
   <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
   <script src="../javascripts/jquery-3.4.1.min.js"></script>
+  <script src="../javascripts/util.js"></script>
   <script>
-    var titleList = ['旺仔是条狗 唯一店铺', ' 宿本 与世界温柔相拥', '港仔风文艺男 店铺', '8杯水2号店铺', 'EDTG韩国女装批发店铺', '茉莉雅集高端品质女装', '知名度原创店铺'];
-
-    function getRandomNumber(start, end, fixed = 0) {
-      let differ = end - start
-      let random = Math.random()
-      return (start + differ * random).toFixed(fixed)
-    }
-    var randomTitle = getRandomNumber(0, titleList.length);
-    $('.current-shop-item-title').text(titleList[randomTitle]);
+    $('.current-shop-item-title').text(getTBTitle());
 
     $('#更新时间').text(moment().format('YYYY-MM-DD HH:mm:ss'));
+
+    let order = getRandomNumber(10, 50);
+    let payer = getRandomNumber(order * 0.8, order * 0.9);
+
+    let price = getRandomNumber(20, 40);
+
+    let visit = getRandomNumber(payer * 20, payer * 40); //访客数是买家数的20到40倍
+    let scan = getRandomNumber(visit * 1.1, visit * 1.5); //浏览量是访客数的1.1到1.5倍
+
+    let totalprice = price * payer;
+
+
+    $('#访客数').text(visit.toLocaleString());
+    $('#访客数占比').text(`${getRandomNumber(90,98,2)}%`);
+    $('#访客数昨日').text(getRandomNumber(visit * 3, visit * 4).toLocaleString());
+
+    $('#浏览量').text(scan.toLocaleString());
+    $('#浏览量占比').text(`${getRandomNumber(90,98,2)}%`);
+    $('#浏览量昨日').text(getRandomNumber(scan * 3, scan * 4).toLocaleString());
+
+    $('#支付金额').text(totalprice.toLocaleString());
+    $('#支付金额占比').text(`${getRandomNumber(90,98,2)}%`);
+    $('#支付金额昨日').text(getRandomNumber(totalprice * 3, totalprice * 4).toLocaleString());
+
+    $('#支付子订单数').text(order.toLocaleString());
+    $('#支付子订单数占比').text(`${getRandomNumber(90,98,2)}%`);
+    $('#支付子订单数昨日').text(getRandomNumber(order * 3, order * 4).toLocaleString());
+
+    $('#支付买家数').text(payer.toLocaleString());
+    $('#支付买家数占比').text(`${getRandomNumber(90,98,2)}%`);
+    $('#支付买家数昨日').text(getRandomNumber(payer * 3, payer * 4).toLocaleString());
   </script>
 </body>
 

@@ -85,10 +85,28 @@
     </div>
     <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
     <script src="../javascripts/jquery-3.4.1.min.js"></script>
+    <script src="../javascripts/util.js"></script>
     <script>
         $(function () {
             let now = moment().format('HH:mm');
             $('.item-time').text(now);
+
+
+            let corder = getRandomNumber(30, 50);
+            let tosend = getRandomNumber(10, 30);
+            let topay = getRandomNumber(10, 20);
+            let sent = getRandomNumber(100, 200);
+            let reject = 0;
+            let toScore = getRandomNumber(200, 400);
+            let close = getRandomNumber(0, 10);
+            let succe = getRandomNumber(1000, 1500);
+            $('.item-1').text(topay);
+            $('.item-2').text(tosend);
+            $('.item-3').text(reject);
+            $('.item-4').text(toScore);
+            $('.item-5').text(0);
+
+
         });
     </script>
 </body>

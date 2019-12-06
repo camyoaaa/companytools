@@ -80,7 +80,27 @@
         <div class="item item-f2">1632</div>
         <div class="item item-f3">3255</div>
     </div>
+    <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
+    <script src="../javascripts/jquery-3.4.1.min.js"></script>
+    <script src="../javascripts/util.js"></script>
+    <script>
+        let order = getRandomNumber(30, 50);
+        let reject = getRandomNumber(0, 1);
 
+        let topay = getRandomNumber(5, 10);
+        let tosend = getRandomNumber(5, 10);
+        let visit = getRandomNumber(1000, 2000);
+        let yorder = getRandomNumber(visit / 9, visit / 15);
+        let price = getRandomNumber(20, 40);
+        let zuori = yorder * price;
+
+        $('.item-order').text(order);
+        $('.item-reject').text(reject);
+        $('.item-topay').text(topay);
+        $('.item-f1').text(tosend);
+        $('.item-f2').text(visit);
+        $('.item-f3').text(zuori);
+    </script>
 </body>
 
 </html>

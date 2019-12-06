@@ -100,10 +100,26 @@
     </div>
     <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
     <script src="../javascripts/jquery-3.4.1.min.js"></script>
+    <script src="../javascripts/util.js"></script>
     <script>
         $(function () {
             let now = moment().format('HH:mm');
             $('.item-time').text(now);
+
+            let price = getRandomNumber(20, 40);
+            let order = getRandomNumber(30, 50);
+            let tosend = getRandomNumber(5, 10);
+            let sent = order - tosend;
+            let y3order = getRandomNumber(order * 85, order * 95);
+            let topay = price * getRandomNumber(0, 2);
+            let reject = 0;
+            let toScore = getRandomNumber(order * 0.5, order * 0.8);
+            $('.item-tosend').text(tosend);
+            $('.item-sent').text(sent);
+            $('.item-3y').text(y3order);
+            $('.item-topay').text(topay);
+            $('.item-reject').text(reject);
+            $('.item-record').text(toScore);
         });
     </script>
 </body>

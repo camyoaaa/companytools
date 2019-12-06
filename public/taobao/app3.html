@@ -65,10 +65,16 @@
     </div>
     <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
     <script src="../javascripts/jquery-3.4.1.min.js"></script>
+    <script src="../javascripts/util.js"></script>
     <script>
         $(function () {
             let now = moment().format('HH:mm');
             $('.item-time').text(now);
+
+            let order = getRandomNumber(30, 50);
+            let price = getRandomNumber(20, 40);
+            $('.item-gold').text(Number(price * order).toLocaleString());
+            $('.item-order').text(order);
         });
     </script>
 </body>

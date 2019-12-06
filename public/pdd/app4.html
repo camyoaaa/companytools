@@ -30,7 +30,8 @@
             position: absolute;
             background: white;
             font-size: 14px;
-            color: black;
+            /* color: black; */
+            color: rgb(72, 72, 72);
         }
 
         .rmb {
@@ -272,17 +273,17 @@
             let rejectOrder = getRandomNumber(0, 1);
             let rejectTotal = rejectOrder * price;
             $('#成交额').text(parseInt(price * order).toLocaleString());
-            $('#成交额较上一周').text(getRandomNumber(5, 15));
+            $('#成交额较上一月').text(getRandomNumber(5, 15));
             $('#访客数').text(visit.toLocaleString());
-            $('#访客数较上一周').text(getRandomNumber(5, 15));
+            $('#访客数较上一月').text(getRandomNumber(5, 15));
             $('#客单价').text(price);
-            $('#客单价较上一周').text(getRandomNumber(1, 5));
+            $('#客单价较上一月').text(getRandomNumber(1, 5));
             $('#订单数').text(order);
-            $('#订单数较上一周').text(getRandomNumber(5, 15));
+            $('#订单数较上一月').text(getRandomNumber(5, 15));
             $('#退款金额').text(rejectTotal.toFixed(2));
-            $('#退款金额较上一周').text(getRandomNumber(0, 5));
+            $('#退款金额较上一月').text(getRandomNumber(0, 5));
             $('#退款单数').text(rejectOrder);
-            $('#退款单数较上一周').text(getRandomNumber(0, 5));
+            $('#退款单数较上一月').text(getRandomNumber(0, 5));
         });
     </script>
 </body>
