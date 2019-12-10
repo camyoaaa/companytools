@@ -36,13 +36,13 @@
         <a-layout id="components-layout-demo-side" style="min-height: 100vh">
             <a-layout-sider collapsible v-model="isCollapse">
                 <div class="logo"></div>
-                <a-menu theme="light" :defaultSelectedKeys="['1']" mode="inline">
-                    <a-sub-menu v-for="(menu1,index1) in menuList" :key="index1">
+                <a-menu theme="light" default-selected-keys="0-0" :default-open-keys="['淘宝','拼多多']" mode="inline">
+                    <a-sub-menu v-for="(menu1,index1) in menuList" :key="menu1.name">
                         <span slot="title">
                             <a-icon :type="menu1.type"></a-icon>
                             <span>{{menu1.name}}</span>
                         </span>
-                        <a-menu-item v-for="(menu2,index2) in menu1.children" :key="index2" @click="gotoPage(menu2.href)">
+                        <a-menu-item v-for="(menu2,index2) in menu1.children" :key="`${index1}-${index2}`" @click="gotoPage(menu2.href)">
                             {{menu2.name}}
                         </a-menu-item>
                     </a-sub-menu>
